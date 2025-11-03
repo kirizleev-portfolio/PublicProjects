@@ -5,7 +5,7 @@ Jedes Projekt ist vollständig dokumentiert und zeigt einen klaren Lern- oder Ar
 
 ---
 
-## 🚀 Projekte
+## Projekte
 
 | Projekt | Beschreibung | Technologien |
 |----------|---------------|---------------|
@@ -14,7 +14,7 @@ Jedes Projekt ist vollständig dokumentiert und zeigt einen klaren Lern- oder Ar
 
 ---
 
-## 🧠 Fokus
+## Fokus
 
 - Sauberer, gut kommentierter Code  
 - Objektorientiertes Design (OOP)  
@@ -23,19 +23,19 @@ Jedes Projekt ist vollständig dokumentiert und zeigt einen klaren Lern- oder Ar
 
 ---
 
-## 🧩 Tech-Stack
+## Tech-Stack
 
 `Java 21` • `OOP` • `Data Structures` • `Benchmarking` • `Clean Code`  
 `Git / GitHub` • `JUnit (Basics)` • `Documentation with Markdown`
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Vladimir Kirizleev**  
-📍 Essen, NRW  
-🎯 Fokus: Java Backend & Algorithmic Practice  
-📧 [GitHub Profil](https://github.com/vkir090)
+Essen, NRW  
+Fokus: Java Backend & Algorithmic Practice  
+[GitHub Profil](https://github.com/vkir090)
 
 ---
 
