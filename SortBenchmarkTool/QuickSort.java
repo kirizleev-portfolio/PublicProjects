@@ -1,30 +1,25 @@
 /**
- * =============================================
- *  Class: QuickSort
- *  Project: SortBenchmarkTool / Sorting Algorithms
- *  Author: Vladimir K. (@vkir090)
- *  Date:   2025-10-17
- * =============================================
+ * QuickSort Algorithm
+ * -------------------
+ * A clean implementation of the QuickSort algorithm,
+ * based on the divide-and-conquer paradigm.
  *
- * Description:
- * Implementation of the QuickSort algorithm using
- * the divide-and-conquer paradigm. The array is
- * partitioned around a pivot element:
- *  - Elements smaller than the pivot go to the left,
- *  - Elements greater than the pivot go to the right.
- * The algorithm then recursively sorts the sub-arrays.
+ * The array is partitioned around a pivot element:
+ *  - Elements smaller than the pivot move left,
+ *  - Elements greater move right.
+ * Each partition is then sorted recursively.
  *
  * Key Concepts:
- * - Divide and Conquer
- * - Recursion and pointer movement
- * - Runtime behavior and pivot selection
+ *  - Divide and Conquer
+ *  - Recursion and in-place swapping
+ *  - Runtime behavior and pivot strategy
  *
  * Example:
- * int[] arr = {8, 3, 5, 2, 9, 1, 4, 7, 6};
- * QuickSort.quickSort(arr, 0, arr.length - 1);
+ *  int[] data = {8, 3, 5, 2, 9, 1, 4, 7, 6};
+ *  QuickSort.quickSort(data, 0, data.length - 1);
  *
- * License:
- * MIT License – free for educational and commercial use.
+ * Author: Vladimir Kirizleev (@vkir090)
+ * License: MIT (free for educational and commercial use)
  */
 
 import java.util.Arrays;
@@ -32,62 +27,59 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        // Beispiel-Array (unsortiert)
-        int[] nichtSortiert = {8, 3, 5, 2, 9, 1, 4, 7, 6};
+        int[] unsorted = {8, 3, 5, 2, 9, 1, 4, 7, 6};
 
-        // Zeitmessung starten
+        // Measure runtime
         long start = System.nanoTime();
-        quickSort(nichtSortiert, 0, nichtSortiert.length - 1);
+        quickSort(unsorted, 0, unsorted.length - 1);
         long end = System.nanoTime();
 
-        // Ergebnis ausgeben
-        System.out.println("QuickSort Ergebnis:");
-        for (int a : nichtSortiert) {
-            System.out.print(a + " ");
+        // Print result
+        System.out.println("QuickSort result:");
+        for (int num : unsorted) {
+            System.out.print(num + " ");
         }
-
-        System.out.println("\nZeit: " + (end - start) + " ns");
+        System.out.println("\nTime: " + (end - start) + " ns");
     }
 
     /**
-     * QuickSort-Algorithmus (rekursiv)
+     * Recursive QuickSort implementation.
      *
-     * @param arr   Array, das sortiert werden soll
-     * @param start Startindex
-     * @param end   Endindex
+     * @param arr   Array to sort
+     * @param start Start index
+     * @param end   End index
      */
     public static void quickSort(int[] arr, int start, int end) {
-        // Abbruchbedingung: nur ein oder kein Element
         if (start >= end) return;
 
-        // Pivot wählen – mittleres Element
-        int pivotPos = start + (end - start) / 2;
-        int pivot = arr[pivotPos];
+        // Choose pivot (middle element)
+        int pivotIndex = start + (end - start) / 2;
+        int pivot = arr[pivotIndex];
 
-        // Zeiger für linke und rechte Seite
-        int l = start;
-        int r = end;
+        int left = start;
+        int right = end;
 
-        // Partitionierung: Werte kleiner/ größer als Pivot anordnen
-        while (l <= r) {
-            // Linken Zeiger bewegen, bis Element >= Pivot
-            while (arr[l] < pivot) l++;
+        // Partition step
+        while (left <= right) {
+            while (arr[left] < pivot) left++;
+            while (arr[right] > pivot) right--;
 
-            // Rechten Zeiger bewegen, bis Element <= Pivot
-            while (arr[r] > pivot) r--;
-
-            // Elemente tauschen, wenn Zeiger sich noch nicht überkreuzt haben
-            if (l <= r) {
-                int temp = arr[l];
-                arr[l] = arr[r];
-                arr[r] = temp;
-                l++;
-                r--;
+            if (left <= right) {
+                swap(arr, left, right);
+                left++;
+                right--;
             }
         }
 
-        // Rekursion auf die beiden Teilbereiche
-        if (start < r) quickSort(arr, start, r);
-        if (l < end) quickSort(arr, l, end);
+        // Recursively sort partitions
+        if (start < right) quickSort(arr, start, right);
+        if (left < end) quickSort(arr, left, end);
+    }
+
+    /** Swaps two elements in an array. */
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
