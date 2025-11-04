@@ -1,42 +1,44 @@
 # 👋 Java Public Projects
 
-Dieses Repository enthält ausgewählte **Java-Projekte**, die ich zum Üben und Vertiefen von **Algorithmen, Datenstrukturen** und **Clean-Code-Prinzipien** entwickelt habe.  
-Jedes Projekt ist vollständig dokumentiert und zeigt einen klaren Lern- oder Architektur-Fokus.
+🇩🇪 **Kurzbeschreibung:**  
+Dieses Repository enthält kleine Java-Projekte, die ich im Rahmen meines Eigenstudiums entwickelt habe – mit Fokus auf Algorithmen, Datenstrukturen und sauberen Code.  
+
+🇬🇧 **Overview:**  
+This repository includes a few small Java projects I’ve built while practicing algorithms, data structures, and clean code design.  
+Each example is focused and practical — written to strengthen my understanding of core programming concepts and Java performance.
 
 ---
 
-## Projekte
+## Projects
 
-| Projekt | Beschreibung | Technologien |
-|----------|---------------|---------------|
-| [LinkedList Demo](./LinkedListDemo) | Eine einfache Implementierung einer einfach verketteten Liste in Java. Zeigt, wie sich Elemente dynamisch verknüpfen lassen, ohne Arrays zu verwenden. | Java 21, OOP, Datenstrukturen |
-| [Sort Benchmark Tool](./SortBenchmarkTool) | Vergleich und empirische Laufzeitanalyse mehrerer Sortieralgorithmen – **QuickSort**, **MergeSort** und **HybridSort**. Beinhaltet Optimierungen wie *Median-of-Three Pivoting* und *Tail Recursion Elimination*. | Java 21, Arrays, Benchmarking, Performance-Profiling |
-
----
-
-## Fokus
-
-- Sauberer, gut kommentierter Code  
-- Objektorientiertes Design (OOP)  
-- Verständnis klassischer und hybrider Sortierverfahren  
-- Messung und Optimierung von Laufzeiten  
+| Project | Description | Tech |
+|----------|--------------|------|
+| **LinkedList Demo** | A minimal implementation of a singly linked list in Java. It shows how elements can be connected dynamically without using arrays. | Java 21 · OOP · Data Structures |
+| **Sort Benchmark Tool** | A small benchmark that compares different sorting algorithms — **QuickSort**, **MergeSort**, and a **HybridSort** approach. Includes performance measurements and simple optimizations. | Java 21 · Arrays · Benchmarking |
 
 ---
 
-## Tech-Stack
+## Focus
+
+- Clean, readable code  
+- Object-oriented design principles  
+- Understanding classical and hybrid sorting algorithms  
+- Measuring and comparing runtime efficiency  
+
+---
+
+## Tech Stack
 
 `Java 21` • `OOP` • `Data Structures` • `Benchmarking` • `Clean Code`  
-`Git / GitHub` • `JUnit (Basics)` • `Documentation with Markdown`
+`Git / GitHub` • `JUnit (Basics)` • `Markdown Docs`
 
 ---
 
-## Autor
+## Author
 
 **Vladimir Kirizleev**  
-Essen, NRW  
-Fokus: Java Backend & Algorithmic Practice  
-[GitHub Profil](https://github.com/vkir090)
+Essen (NRW, Germany)  
+Focus: Java Backend Development & Algorithmic Thinking  
+[GitHub Profile](https://github.com/vkir090)
 
----
-
-> Organisation: [kirizleev-portfolio](https://github.com/kirizleev-portfolio)
+> Part of my portfolio: [kirizleev-portfolio](https://github.com/kirizleev-portfolio)
