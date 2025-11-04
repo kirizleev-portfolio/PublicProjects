@@ -1,28 +1,24 @@
 /**
- * =============================================
- *  Class: MergeSort
- *  Project: SortBenchmarkTool / Sorting Algorithms
- *  Author: Vladimir K. (@vkir090)
- *  Date:   2025-10-10
- * =============================================
+ * MergeSort Algorithm
+ * -------------------
+ * A clean implementation of the classic Merge Sort algorithm
+ * following the divide-and-conquer principle.
  *
- * Description:
- * Implementation of the MergeSort algorithm based on
- * the divide-and-conquer paradigm. The array is recursively
- * divided into halves and merged back into a sorted sequence.
- * Includes an optional runtime comparison with Arrays.sort().
+ * The array is recursively divided into halves and then merged
+ * back into a sorted sequence. Includes a simple runtime
+ * comparison with Java's built-in Arrays.sort().
  *
  * Key Concepts:
- * - Recursion and divide-and-conquer thinking
- * - Splitting and merging subarrays efficiently
- * - Benchmarking against Java's built-in sorting
+ *  - Recursion and divide-and-conquer logic
+ *  - Efficient splitting and merging of subarrays
+ *  - Benchmarking vs. Arrays.sort()
  *
  * Example:
- * int[] arr = {8, 3, 5, 2, 9, 1, 4, 7, 6};
- * int[] sorted = MergeSort.divide(arr);
+ *  int[] data = {8, 3, 5, 2, 9, 1, 4, 7, 6};
+ *  int[] sorted = MergeSort.divide(data);
  *
- * License:
- * MIT License – free for educational and commercial use.
+ * Author: Vladimir Kirizleev (@vkir090)
+ * License: MIT (free for educational and commercial use)
  */
 
 import java.util.Arrays;
@@ -30,46 +26,46 @@ import java.util.Arrays;
 public class MergeSort {
 
     public static void main(String[] args) {
-        int[] nichtSortiert = {8, 3, 5, 2, 9, 1, 4, 7, 6};
+        int[] unsorted = {8, 3, 5, 2, 9, 1, 4, 7, 6};
 
-        // Sortierung mit selbstgeschriebener Methode
-        int[] sortiert = divide(nichtSortiert);
+        // Sort using custom MergeSort implementation
+        int[] sorted = divide(unsorted);
 
-        System.out.println("MergeSort Ergebnis:");
-        for (int a : sortiert) System.out.print(a + " ");
+        System.out.println("MergeSort result:");
+        for (int num : sorted) System.out.print(num + " ");
         System.out.println("\n");
 
-        // Vergleich mit Java Arrays.sort()
+        // Compare performance with Java’s built-in sort
         long start = System.nanoTime();
-        Arrays.sort(nichtSortiert);
+        Arrays.sort(unsorted);
         long end = System.nanoTime();
 
-        System.out.println("Arrays.sort Zeit: " + (end - start) + " ns");
+        System.out.println("Arrays.sort() time: " + (end - start) + " ns");
     }
 
-    // --- Rekursive Division ---
+    /** Recursively divides the array into halves. */
     public static int[] divide(int[] arr) {
         if (arr.length == 1) return arr;
 
-        int mitte = arr.length / 2;
-        int[] links = Arrays.copyOfRange(arr, 0, mitte);
-        int[] rechts = Arrays.copyOfRange(arr, mitte, arr.length);
+        int mid = arr.length / 2;
+        int[] left = Arrays.copyOfRange(arr, 0, mid);
+        int[] right = Arrays.copyOfRange(arr, mid, arr.length);
 
-        return merge(divide(links), divide(rechts));
+        return merge(divide(left), divide(right));
     }
 
-    // --- Zusammenführung (Merge) ---
-    public static int[] merge(int[] links, int[] rechts) {
-        int[] merged = new int[links.length + rechts.length];
-        int l = 0, r = 0, m = 0;
+    /** Merges two sorted arrays into one sorted result. */
+    public static int[] merge(int[] left, int[] right) {
+        int[] merged = new int[left.length + right.length];
+        int i = 0, j = 0, k = 0;
 
-        while (l < links.length && r < rechts.length) {
-            if (links[l] <= rechts[r]) merged[m++] = links[l++];
-            else merged[m++] = rechts[r++];
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) merged[k++] = left[i++];
+            else merged[k++] = right[j++];
         }
 
-        while (l < links.length) merged[m++] = links[l++];
-        while (r < rechts.length) merged[m++] = rechts[r++];
+        while (i < left.length) merged[k++] = left[i++];
+        while (j < right.length) merged[k++] = right[j++];
 
         return merged;
     }
